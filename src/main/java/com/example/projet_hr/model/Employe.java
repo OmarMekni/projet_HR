@@ -15,7 +15,7 @@ import java.util.Date;
 @Transactional
 public class Employe {
     /**
-     * @Id qui donne la clé primaire PK dans la tableass
+     * @Id qui donne la clé primaire PK dans la table
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
