@@ -1,6 +1,7 @@
 package com.example.projet_hr.repository;
 
-import com.example.projet_de_synthese_rh.model.Departement;
+
+import com.example.projet_hr.model.Departement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
