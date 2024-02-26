@@ -15,7 +15,7 @@ public class EmploiServiceImpl implements EmploiService {
     @Autowired
     private EmploiRepository emploiRepository;
     /**
-     * Méthode saveEmploi() qui sert à inserrer un emploi à la BD
+     * Méthode saveEmploi() qui sert à inserrer un emploi à la Base de données
      *
      * @param emploi
      * @return : emploi
