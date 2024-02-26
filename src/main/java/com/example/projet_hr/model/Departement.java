@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe Departement qui sera la table départment dans la BD
+ * Classe Departement qui sera la table départment dans la Base de Données
  */
 
 @Entity
