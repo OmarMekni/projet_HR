@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Classe Departement qui sera la table département dans la Base de donnée
+ * Classe Departement qui sera la table département dans la Base de donnee
  */
 @Entity
 @Getter
