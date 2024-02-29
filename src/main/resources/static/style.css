@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:cadetblue;
+}
+.style-h1{
+    font-size: 40px;
+    color: white;
+    font-family: cursive;
+    display: flex;
+    margin-left: 2%;
+}
+.style-h1:hover{
+    cursor: pointer;
+    color:rgb(236, 236, 39);;
+}
+table, tr, th, td{
+    border: black 1px solid;
+    border-collapse: collapse;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+table {
+    margin: auto;
+    /*width: 80%;*/
+    width: 40%;
+    border-collapse: collapse;
+}
+th, td {
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    border: 1px solid black;
+}
+th{
+    border-radius: 10px;
+    border: black 3px solid;
+    background-color:dimgray;
+    color: white;
+}
+td{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border: black 2px solid;
+}
+table tr:nth-child(even) {
+    background-color:darkgrey;
+}
+table tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+.h1-liste{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+.h1-home{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+.background-menu{
+    background-color: black;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: dimgray;
+    border: none;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    margin-bottom: 3%;
+}
+.btn:hover{
+    cursor: pointer;
+    color: rgb(11, 23, 151);
+    background-color: rgb(236, 236, 39);
+}
+.a3 {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+@media (max-width: 600px) {
+    .btn, .a3 {
+        font-size: 16px;
+    }
+    header nav ul {
+        justify-content: space-around;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+.div-emp{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.h1-emp{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 60px;
+}
+.btn-ajou{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    background: fuchsia;
+    border: none;
+    border-radius: 10px;
+    padding: 3px 5px;
+    color: white;
+    cursor: pointer;
+}
+.btn-ajou:hover{
+    background: yellow;
+    color: black;
+}
+.lbl{
+    font-family: cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+.inpt{
+    font-family: cursive;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.select-job{
+    margin-bottom: 4%;
+    font-family: cursive;
+    font-size: 25px;
+    border-radius: 10px;
+    background: moccasin;
+    cursor: pointer;
+}
+.div-liste{
+    display: flex;
+    justify-content: center;
+}
+.lien-liste{
+    font-size: 26px;
+    font-family: Verdana;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.p-success{
+    color: green;
+    text-align: center;
+    font-size: 26px;
+}
+.p-error{
+    color: red;
+    text-align: center;
+    font-size: 26px;
+}
+.btnModif{
+    background: orange;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 23px;
+    min-width: 100px;
+    font-weight: bold;
+    /*margin: 0;*/
+    flex-grow: 0;
+    margin-right: 3px;
+}
+
+.btnModif:hover{
+    /*background: orange;*/
+    background: goldenrod;
+    color: black;
+    font-weight: bold;
+}
+.btnDel{
+    background: red;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 23px;
+    min-width: 100px;
+    font-weight: bold;
+    margin: 0;
+    flex-grow: 0;
+}
+.btnDel:hover{
+    background: #9b291e;
+    /*background: firebrick;*/
+    color: black;
+    font-weight: bold;
+}
+
+.formDel {
+    display: inline-flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.tdAction {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
