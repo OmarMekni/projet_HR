@@ -22,13 +22,13 @@
 </div>
 <h1 class="h1-emp">Ajouter un travail</h1>
 <div class="div-emp">
-  <form th:action="@{/addJob}" method="post">
+  <form th:action="@{/addEmploi}" method="post">
     <label for="jobTitle" class="lbl">Titre du travail:</label><br>
     <input type="text" id="jobTitle" name="title" placeholder="Titre du travail" class="inpt" required><br>
 
     <label for="departement" class="lbl">Sélectionnez un département:</label><br>
     <select id="departement" name="departement" class="select-job" required>
-      <option th:each="departement : ${departementNames}" th:value="${departement.id}" th:text="${departement.name}"></option>
+      <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.nomDepartement}"></option>
     </select><br>
 
     <button type="submit" class="btn-ajou lbl">Ajouter travail</button>
