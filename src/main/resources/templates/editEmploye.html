@@ -32,13 +32,13 @@
     <input type="hidden" th:field="*{id}">
 
     <div class="form-group">
-      <label for="firstName" class="lbl">Prénom:</label>
-      <input type="text" id="firstName" th:field="*{firstName}" class="inpt form-control" required>
+      <label for="prenom" class="lbl">Prénom:</label>
+      <input type="text" id="prenom" th:field="*{prenom}" class="inpt form-control" required>
     </div>
 
     <div class="form-group">
-      <label for="lastName" class="lbl">Nom:</label>
-      <input type="text" id="lastName" th:field="*{lastName}" class="inpt form-control" required>
+      <label for="nom" class="lbl">Nom:</label>
+      <input type="text" id="nom" th:field="*{nom}" class="inpt form-control" required>
     </div>
 
     <div class="form-group">
@@ -50,6 +50,12 @@
       <label for="salaire" class="lbl">Salaire:</label>
       <input type="text" id="salaire"  th:field="*{salaire}" class="inpt form-control" required>
     </div>
+
+    <div class="form-group">
+      <label for="dateEmbauche" class="lbl">Date d'embauche:</label>
+      <input type="text" id="dateEmbauche"  th:field="*{dateEmbauche}" class="inpt form-control" required>
+    </div>
+
     <button type="submit" class="btn-save btn-ajou lbl">Sauvegarder</button>
   </form>
 </div>
