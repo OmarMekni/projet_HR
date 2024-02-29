@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ajouter du travail</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+<div class="background-menu">
+  <div>
+    <h1 class="style-h1">Ressources humaines</h1>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartment}">Créer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+      </ul>
+    </nav>
+  </header>
+</div>
+<h1 class="h1-emp">Ajouter un travail</h1>
+<div class="div-emp">
+  <form th:action="@{/addJob}" method="post">
+    <label for="jobTitle" class="lbl">Titre du travail:</label><br>
+    <input type="text" id="jobTitle" name="title" placeholder="Titre du travail" class="inpt" required><br>
+
+    <label for="departement" class="lbl">Sélectionnez un département:</label><br>
+    <select id="departement" name="departement" class="select-job" required>
+      <option th:each="departement : ${departementNames}" th:value="${departement.id}" th:text="${departement.name}"></option>
+    </select><br>
+
+    <button type="submit" class="btn-ajou lbl">Ajouter travail</button>
+  </form>
+
+</div>
+
+<div id="jobSuccessMessage" th:if="${success}">
+  <p class="p-success" th:text="${success}"></p>
+</div>
+<div th:if="${error}" id="jobErrorMessage">
+  <p class="p-error" th:text="${error}"></p>
+</div>
+
+</body>
+</html>
