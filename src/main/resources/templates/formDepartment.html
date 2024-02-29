@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un département</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+<div class="background-menu">
+    <div>
+        <h1 class="style-h1">Ressources humaines</h1>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+                <button class="btn" ><a class="a3" th:href="@{/formJob}">Créer un emploi</a></button>
+                <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+            </ul>
+        </nav>
+    </header>
+</div>
+<h1 class="h1-emp">Ajouter un département</h1>
+<div class="div-emp">
+    <form th:action="@{/addDepartment}" method="post">
+        <label for="deptName" class="lbl">Nom du département:</label><br>
+        <input type="text" id="deptName" name="name" placeholder="Nom du département" class="inpt" required><br>
+        <button type="submit" class="btn-ajou lbl">Ajouter un département</button>
+    </form>
+</div>
+<div id="successDiv" th:if="${success}">
+    <p class="p-success" th:text="${success}"></p>
+</div>
+<div th:if="${error}" id="errorDiv">
+    <p class="p-error" th:text="${error}"></p>
+</div>
+</body>
+</html>
