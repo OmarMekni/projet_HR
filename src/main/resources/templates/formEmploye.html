@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ajouter un employé</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+
+<div class="background-menu">
+  <div>
+    <h1 class="style-h1">Ressources humaines</h1>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Créer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Créer un emploi</a></button>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<h1 class="h1-emp">Ajouter un employé</h1>
+<div class="div-emp">
+  <form th:action="@{/addEmploye}" method="post" th:object="${employe}">
+    <label for="prenom" class="lbl">Prénom:</label><br>
+    <input type="text" id="prenom" name="firstName" placeholder="Prénom" class="inpt" th:field="*{prenom}"
+           required><br>
+
+    <label for="nom" class="lbl">Nom:</label><br>
+    <input type="text" id="nom" name="lastName" placeholder="Nom" class="inpt" th:field="*{nom}"
+           required><br>
+
+    <label for="email" class="lbl">E-mail:</label><br>
+    <input type="email" id="email" name="email" placeholder="example@gmail.com" class="inpt" th:field="*{email}"
+           required><br>
+
+    <label for="salaire" class="lbl">Salaire:</label><br>
+    <input type="text" id="salaire" name="salary"  class="inpt" th:field="*{salaire}" required><br>
+
+    <label for="dateEmbauche" class="lbl">Date d'embauche:</label><br>
+    <input type="text" id="dateEmbauche" name="dateEmbauche" placeholder="JJ/MM/AAAA" class="inpt"
+           th:field="*{dateEmbauche}" required><br>
+
+    <label for="emploi" class="lbl">Travail:</label><br>
+    <select id="emploi" name="job.id" class="select-job" required>
+      <option value="">Sélectionnez un emploi</option>
+      <option th:each="emploi : ${emplois}" th:value="${emploi.id}" th:text="${emploi.titreEmploi}"></option>
+    </select><br>
+
+    <button type="submit" class="btn-ajou lbl">Ajouter un employé</button>
+  </form>
+</div>
+
+<div class="div-liste">
+  <a href="/employes" class="lien-liste">Afficher la liste des employés</a>
+</div>
+
+
+<div id="employeSuccessMessage" th:if="${success}">
+  <p class="p-success" th:text="${success}"></p>
+</div>
+
+<div th:if="${error}" id="emailExistsErrorMessage">
+  <p class="p-error" th:text="${error}"></p>
+</div>
+
+</body>
+</html>
+
+

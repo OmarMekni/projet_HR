@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Modifier Employe</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+
+<body>
+
+<div class="background-menu">
+  <div>
+    <h1 class="style-h1">Ressources humaines</h1>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartment}">Créer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formJob}">Créer un emploi</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<h1 class="h1-home">Modifier Employe</h1>
+
+<div class="div-emp">
+  <form th:object="${employe}" th:action="@{/updateEmploye}" method="POST">
+    <input type="hidden" th:field="*{id}">
+
+    <div class="form-group">
+      <label for="firstName" class="lbl">Prénom:</label>
+      <input type="text" id="firstName" th:field="*{firstName}" class="inpt form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName" class="lbl">Nom:</label>
+      <input type="text" id="lastName" th:field="*{lastName}" class="inpt form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="lbl">Email:</label>
+      <input type="email" id="email" th:field="*{email}" class="inpt form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="salaire" class="lbl">Salaire:</label>
+      <input type="text" id="salaire"  th:field="*{salaire}" class="inpt form-control" required>
+    </div>
+    <button type="submit" class="btn-save btn-ajou lbl">Sauvegarder</button>
+  </form>
+</div>
+</body>
+
+</html>
