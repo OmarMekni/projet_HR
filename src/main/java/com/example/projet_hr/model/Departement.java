@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString(exclude = {"employees", "jobs"})
+@ToString(exclude = {"employes", "emplois"})
 @NoArgsConstructor
 @AllArgsConstructor
 public class Departement {
