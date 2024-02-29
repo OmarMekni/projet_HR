@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+  <title>Liste des employés</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+
+<body>
+
+<div class="background-menu">
+  <div>
+    <h1 class="style-h1">Ressources humaines</h1>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Créer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Créer un emploi</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+      </ul>
+    </nav>
+
+  </header>
+</div>
+<h1 class="h1-liste">Liste des employés</h1>
+<div class="table-container">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>E-mail</th>
+      <th>Salaire</th>
+      <th>Date d'embauche</th>
+      <th>Travail</th>
+      <th>Département</th>
+      <th>Action</th>
+    </tr>
+    <tr th:each="employe : ${employes}">
+      <td th:text="${employe.id}"></td>
+      <td th:text="${employe.prenom}"></td>
+      <td th:text="${employe.nom}"></td>
+      <td th:text="${employe.email}"></td>
+      <td th:text="${employe.salaire}"></td>
+      <td th:text="${employe.dateEmbauche}"></td>
+      <td th:text="${employe.titreEmploi}"></td>
+      <td th:text="${employe.nomDepartement}"></td>
+      <td class="tdAction">
+        <button type="button" class="btn-modifier btnModif" th:attr="data-id=${employe.id}">Modifier</button>
+        <form action="/deleteEmploye/${employe.id}" method="POST" class="formDel">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="button" class="btn-delete btnDel" th:attr="data-id=${employe.id}">Supprimer</button>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+<div th:if="${employeeUpdated}" id="employeeUpdated" style="display:none;"></div>
+</body>
+</html>
