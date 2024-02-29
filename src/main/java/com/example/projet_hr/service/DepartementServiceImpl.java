@@ -15,7 +15,7 @@ public class DepartementServiceImpl implements DepartementService {
     private DepartementRepository departementRepository;
 
     /**
-     * Méthode saveDepartement pour enregistrer un département dans la BD
+     * Méthode saveDepartement pour enregistrer un département dans la base de donnée
      *
      * @param departement
      * @return
