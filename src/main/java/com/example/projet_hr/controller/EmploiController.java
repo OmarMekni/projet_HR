@@ -21,6 +21,7 @@ public class EmploiController {
     private DepartementService departementService;
     @Autowired
     private EmploiService emploiService;
+
     @GetMapping("/formEmploi")
     public String formEmploi(Model model) {
 
@@ -46,7 +47,6 @@ public class EmploiController {
 
     @PostMapping("/addEmploi")
     public String saveJobWithDepartment(@ModelAttribute("emploi") Emploi emploi, Model model,
-
                                         RedirectAttributes redirectAttributes) {
 
         Departement departement = emploi.getDepartement();
@@ -99,13 +99,9 @@ public class EmploiController {
 
     }
     private EmploiDTO convertToDTO(Emploi emploi) {
-
         EmploiDTO dto = new EmploiDTO();
-
         dto.setId(emploi.getId());
-
         dto.setTitreEmploi(emploi.getTitreEmploi());
-
         dto.setNomDepartement(emploi.getDepartement().getNomDepartement());
         return dto;
 
