@@ -31,7 +31,7 @@ class EmploiServiceImplTest {
     private EmploiRepository emploiRepository;
 
     @InjectMocks
-    private EmploiService emploiService;
+    private EmploiServiceImpl emploiService;
 
     @BeforeEach
     void setUp() {
@@ -97,7 +97,7 @@ class EmploiServiceImplTest {
         jobList.add(job1);
         jobList.add(job2);
 
-//        when(EmploiServiceImpl.findAll()).thenReturn(jobList); ////////////////////
+        when(emploiService.findAll()).thenReturn(jobList);
 
         List<Emploi> foundJobs = emploiService.findAll();
         assertNotNull(foundJobs);
