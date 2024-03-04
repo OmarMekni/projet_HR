@@ -26,11 +26,11 @@
 <div class="div-emp">
   <form th:action="@{/addEmploye}" method="post" th:object="${employe}">
     <label for="prenom" class="lbl">Prénom:</label><br>
-    <input type="text" id="prenom" name="firstName" placeholder="Prénom" class="inpt" th:field="*{prenom}"
+    <input type="text" id="prenom" name="prenom" placeholder="Prénom" class="inpt" th:field="*{prenom}"
            required><br>
 
     <label for="nom" class="lbl">Nom:</label><br>
-    <input type="text" id="nom" name="lastName" placeholder="Nom" class="inpt" th:field="*{nom}"
+    <input type="text" id="nom" name="nom" placeholder="Nom" class="inpt" th:field="*{nom}"
            required><br>
 
     <label for="email" class="lbl">E-mail:</label><br>
@@ -38,14 +38,14 @@
            required><br>
 
     <label for="salaire" class="lbl">Salaire:</label><br>
-    <input type="text" id="salaire" name="salary"  class="inpt" th:field="*{salaire}" required><br>
+    <input type="text" id="salaire" name="salaire"  class="inpt" th:field="*{salaire}" required><br>
 
     <label for="dateEmbauche" class="lbl">Date d'embauche:</label><br>
     <input type="text" id="dateEmbauche" name="dateEmbauche" placeholder="JJ/MM/AAAA" class="inpt"
            th:field="*{dateEmbauche}" required><br>
 
     <label for="emploi" class="lbl">Travail:</label><br>
-    <select id="emploi" name="job.id" class="select-job" required>
+    <select id="emploi" name="emploi.id" class="select-job" required>
       <option value="">Sélectionnez un emploi</option>
       <option th:each="emploi : ${emplois}" th:value="${emploi.id}" th:text="${emploi.titreEmploi}"></option>
     </select><br>

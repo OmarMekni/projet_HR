@@ -32,7 +32,7 @@ public class DepartementController {
     }
 
 
-    @PostMapping("/addDepartment")
+    @PostMapping("/addDepartement")
     public String saveDepartement(@ModelAttribute("departement") Departement departement, RedirectAttributes redirectAttributes) {
         try {
             departementService.saveDepartement(departement);
@@ -42,7 +42,7 @@ public class DepartementController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Erreur: le Département n'a pas été enregistré.");
         }
-        return "redirect:/formDepartment";
+        return "redirect:/formDepartement";
     }
 
 

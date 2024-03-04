@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
-        <button class="btn" ><a class="a3" th:href="@{/formDepartment}">Créer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Créer un département</a></button>
         <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
       </ul>
     </nav>
@@ -23,8 +23,8 @@
 <h1 class="h1-emp">Ajouter un travail</h1>
 <div class="div-emp">
   <form th:action="@{/addEmploi}" method="post">
-    <label for="jobTitle" class="lbl">Titre du travail:</label><br>
-    <input type="text" id="jobTitle" name="title" placeholder="Titre du travail" class="inpt" required><br>
+    <label for="titreEmploi" class="lbl">Titre du travail:</label><br>
+    <input type="text" id="titreEmploi" name="titreEmploi" placeholder="Titre du travail" class="inpt" required><br>
 
     <label for="departement" class="lbl">Sélectionnez un département:</label><br>
     <select id="departement" name="departement" class="select-job" required>
