@@ -1,5 +1,5 @@
 package com.example.projet_hr.service;
-import com.example.projet_hr.exeption.NotFoundException;
+import com.example.projet_hr.exception.NotFoundException;
 import com.example.projet_hr.model.Departement;
 import com.example.projet_hr.repository.DepartementRepository;
 import org.springframework.beans.factory.annotation.Autowired;

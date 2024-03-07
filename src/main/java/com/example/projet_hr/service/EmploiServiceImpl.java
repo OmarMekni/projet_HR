@@ -1,6 +1,6 @@
 package com.example.projet_hr.service;
 
-import com.example.projet_hr.exeption.NotFoundException;
+import com.example.projet_hr.exception.NotFoundException;
 import com.example.projet_hr.model.Emploi;
 import com.example.projet_hr.repository.EmploiRepository;
 import org.springframework.beans.factory.annotation.Autowired;

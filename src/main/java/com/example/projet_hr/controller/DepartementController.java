@@ -1,6 +1,6 @@
 package com.example.projet_hr.controller;
 
-import com.example.projet_hr.exeption.NotFoundException;
+import com.example.projet_hr.exception.NotFoundException;
 import com.example.projet_hr.model.Departement;
 import com.example.projet_hr.model.DepartementDTO;
 import com.example.projet_hr.service.DepartementService;

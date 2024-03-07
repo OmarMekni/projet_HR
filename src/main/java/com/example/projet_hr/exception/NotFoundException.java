@@ -1,4 +1,4 @@
-package com.example.projet_hr.exeption;
+package com.example.projet_hr.exception;
 
 /**
  * Classe NotFoundException qui gère les NotFindException pour les 3 model
