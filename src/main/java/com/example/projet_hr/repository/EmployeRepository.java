@@ -8,11 +8,10 @@ import java.util.Optional;
 
 public interface EmployeRepository extends JpaRepository<Employe, Integer> {
     /**
-     * Optionnel<Employe> permet de retourner une valeur non null
+     * Optional<Employe> permet de retourner une valeur non null
      * Methode findByEmail pour rechercher un employe par son email
      * @param email
      * @return
      */
     Optional<Employe> findByEmail(String email);
-
 }

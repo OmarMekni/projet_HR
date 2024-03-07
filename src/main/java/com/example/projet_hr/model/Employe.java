@@ -68,5 +68,4 @@ public class Employe {
         this.salaire = salaire;
         this.dateEmbauche = dateEmbauche;
     }
-
 }
