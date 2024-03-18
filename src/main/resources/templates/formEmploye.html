@@ -9,14 +9,16 @@
 
 <div class="background-menu">
   <div>
-    <h1 class="style-h1">Ressources humaines</h1>
+    <h1 class="style-h1">Majesté Import-Export</h1>
   </div>
   <header>
     <nav>
       <ul>
         <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
-        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Créer un département</a></button>
-        <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Créer un emploi</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Gérer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Gérer un emploi</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/departements}">Liste des département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/emplois}">Liste des emplois</a></button>
       </ul>
     </nav>
   </header>
@@ -44,7 +46,7 @@
     <input type="text" id="dateEmbauche" name="dateEmbauche" placeholder="JJ/MM/AAAA" class="inpt"
            th:field="*{dateEmbauche}" required><br>
 
-    <label for="emploi" class="lbl">Travail:</label><br>
+    <label for="emploi" class="lbl">Titre d'emploi:</label><br>
     <select id="emploi" name="emploi.id" class="select-job" required>
       <option value="">Sélectionnez un emploi</option>
       <option th:each="emploi : ${emplois}" th:value="${emploi.id}" th:text="${emploi.titreEmploi}"></option>
@@ -55,7 +57,7 @@
 </div>
 
 <div class="div-liste">
-  <a href="/employes" class="lien-liste">Afficher la liste des employés</a>
+  <a href="/employes" class="lien-liste">Afficher la liste des employés avec leur département et leur emploi</a>
 </div>
 
 
@@ -65,6 +67,41 @@
 
 <div th:if="${error}" id="emailExistsErrorMessage">
   <p class="p-error" th:text="${error}"></p>
+</div>
+
+
+<div class="table-container">
+  <hr class="hrPers">
+</div>
+
+<h1 class="h1-liste">Liste des employés existant</h1>
+<div class="table-container dTable">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>E-mail</th>
+      <th>Salaire</th>
+      <th>Date d'embauche</th>
+      <th>Action</th>
+    </tr>
+    <tr th:each="employe : ${employes}">
+      <td th:text="${employe.id}"></td>
+      <td th:text="${employe.prenom}"></td>
+      <td th:text="${employe.nom}"></td>
+      <td th:text="${employe.email}"></td>
+      <td th:text="${employe.salaire}"></td>
+      <td th:text="${employe.dateEmbauche}"></td>
+      <td class="tdAction">
+        <button type="button" class="btn-modifier btnModif" th:attr="data-id=${employe.id}">Modifier</button>
+        <form action="/deleteEmploye/${employe.id}" method="POST" class="formDel">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="button" class="btn-delete btnDel" th:attr="data-id=${employe.id}">Supprimer</button>
+        </form>
+      </td>
+    </tr>
+  </table>
 </div>
 
 </body>

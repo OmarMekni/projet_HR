@@ -2,6 +2,7 @@ package com.example.projet_hr.controller;
 
 
 import com.example.projet_hr.model.Departement;
+import com.example.projet_hr.model.DepartementDTO;
 import com.example.projet_hr.model.Emploi;
 import com.example.projet_hr.model.EmploiDTO;
 import com.example.projet_hr.service.DepartementService;
@@ -28,8 +29,6 @@ public class EmploiController {
         List<Emploi> emplois = emploiService.findAll();
 
         List<Departement> departements = departementService.findAll();
-
-// Emploi emploi = new Emploi();
 
         model.addAttribute("emplois", emplois);
 
@@ -98,6 +97,16 @@ public class EmploiController {
         }
 
     }
+
+    @GetMapping("/emplois")
+    public String getAllEmplois(Model model){
+        List<Emploi> emplois = emploiService.findAll();
+        List<EmploiDTO> emploiDTOs = emplois.stream().map(this::convertToDTO).collect(Collectors.toList());
+        model.addAttribute("emplois", emploiDTOs);
+        return "emplois";
+    }
+
+
     private EmploiDTO convertToDTO(Emploi emploi) {
         EmploiDTO dto = new EmploiDTO();
         dto.setId(emploi.getId());

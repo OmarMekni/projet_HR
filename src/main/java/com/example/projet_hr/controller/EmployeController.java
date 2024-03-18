@@ -31,10 +31,12 @@ public class EmployeController {
     public String formEmploye(Model model) {
         List<Emploi> emplois = emploiService.findAll();
         List<Departement> departements = departementService.findAll();
+        List<Employe> employes = employeService.findAll();
         Employe employe = new Employe();
         model.addAttribute("emplois", emplois);
         model.addAttribute("departements", departements);
         model.addAttribute("employe", employe);
+        model.addAttribute("employes", employes);
         return "formEmploye";
     }
     @PostMapping("/addEmploye")

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,8 +27,16 @@ public class DepartementController {
      * Pour afficher la page html formDepartement.html
      * @return formDepartement
      */
+//    @GetMapping("/formDepartement")
+//    public String formDepartement(){
+//        return "formDepartement";
+//    }
+
     @GetMapping("/formDepartement")
-    public String formDepartement(){
+    public String formDepartement(Model model) {
+        List<Departement> departements = departementService.findAll();
+        List<DepartementDTO> departementDTOs = departements.stream().map(this::convertToDTO).collect(Collectors.toList());
+        model.addAttribute("departements", departementDTOs);
         return "formDepartement";
     }
 
@@ -87,11 +96,11 @@ public class DepartementController {
      * @return
      */
     @GetMapping("/departements")
-    public List<DepartementDTO> getAllDepartements(){
-        List<Departement> departements =departementService.findAll();
-        List<DepartementDTO> departementDTOs =
-                departements.stream().map(this::convertToDTO).collect(Collectors.toList());
-        return departementDTOs;
+    public String getAllDepartements(Model model){
+        List<Departement> departements = departementService.findAll();
+        List<DepartementDTO> departementDTOs = departements.stream().map(this::convertToDTO).collect(Collectors.toList());
+        model.addAttribute("departements", departementDTOs);
+        return "departements";
     }
 
 

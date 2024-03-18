@@ -15,7 +15,7 @@ body{
 }
 .style-h1:hover{
     cursor: pointer;
-    color:rgb(236, 236, 39);;
+    color:rgb(236, 236, 39);
 }
 table, tr, th, td{
     border: black 1px solid;
@@ -67,10 +67,10 @@ table tr:hover {
 }
 .h1-home{
     text-align: center;
-    margin-top: 3%;
-    font-size: 60px;
+    margin-top: 5%;
+    font-size: 80px;
     font-weight: bold;
-    color: white;
+    color:rgb(236, 236, 39);
 }
 .background-menu{
     background-color: black;
@@ -234,4 +234,26 @@ nav ul {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+
+.dTable{
+    margin-bottom: 5%;
+}
+
+.hrPers{
+    margin-top: 2%;
+    height: 15px;
+    width: 80%;
+    color: dimgray;
+    background: dimgray;
+}
+
+
+#welcomeMessage{
+    display: none;
+}
+
+.divNone{
+    display: none;
 }

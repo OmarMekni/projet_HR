@@ -1,7 +1,8 @@
 package com.example.projet_hr.controller;
 
-import com.example.projet_hr.model.Employe;
-import com.example.projet_hr.model.EmployeDTO;
+import com.example.projet_hr.model.*;
+import com.example.projet_hr.service.DepartementService;
+import com.example.projet_hr.service.EmploiService;
 import com.example.projet_hr.service.EmployeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,18 @@ public class HomeController {
     @Autowired
     private EmployeService employeService;
 
+    @Autowired
+    private DepartementService departementService;
+
+    @Autowired
+    private EmploiService emploiService;
+
     @GetMapping("/home")
     public String getAllEmployes(Model model) {
         List<Employe> employes = employeService.findAll();
         List<EmployeDTO> employeDTOs = employes.stream().map(this::convertToDTO).collect(Collectors.toList());
-//        List<EmployeDTO> employeDTOs = employes.stream().map(EmployeController::convertToDTO).collect(Collectors.toList());
         model.addAttribute("employes", employeDTOs);
+
         return "home"; // fichier HTML à afficher
     }
 
@@ -39,4 +46,43 @@ public class HomeController {
         dto.setNomDepartement(employe.getDepartement().getNomDepartement());
         return dto;
     }
+
+
+    @GetMapping("/allDepartements")
+    public String getAllDepartements(Model model){
+        List<Departement> departements = departementService.findAll();
+        List<DepartementDTO> departementDTOs = departements.stream().map(this::convertToDTO).collect(Collectors.toList());
+        model.addAttribute("departements", departementDTOs);
+        return "departements";
+    }
+
+
+
+    private DepartementDTO convertToDTO(Departement departement) {
+        DepartementDTO dto = new DepartementDTO();
+        dto.setId(departement.getId());
+        dto.setNomDepartement(departement.getNomDepartement());
+        return dto;
+    }
+
+
+
+    @GetMapping("/allemplois")
+    public String getAllEmplois(Model model){
+        List<Emploi> emplois = emploiService.findAll();
+        List<EmploiDTO> emploiDTOs = emplois.stream().map(this::convertToDTO).collect(Collectors.toList());
+        model.addAttribute("emplois", emploiDTOs);
+        return "emplois";
+    }
+
+
+    private EmploiDTO convertToDTO(Emploi emploi) {
+        EmploiDTO dto = new EmploiDTO();
+        dto.setId(emploi.getId());
+        dto.setTitreEmploi(emploi.getTitreEmploi());
+        dto.setNomDepartement(emploi.getDepartement().getNomDepartement());
+        return dto;
+
+    }
+
 }

@@ -8,22 +8,23 @@
 <body>
 <div class="background-menu">
   <div>
-    <h1 class="style-h1">Ressources humaines</h1>
+    <h1 class="style-h1">Majesté Import-Export</h1>
   </div>
   <header>
     <nav>
       <ul>
         <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
-        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Créer un département</a></button>
-        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Gérer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Gérer un employé</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/departements}">Liste des département</a></button>
       </ul>
     </nav>
   </header>
 </div>
-<h1 class="h1-emp">Ajouter un travail</h1>
+<h1 class="h1-emp">Ajouter un emploi</h1>
 <div class="div-emp">
   <form th:action="@{/addEmploi}" method="post">
-    <label for="titreEmploi" class="lbl">Titre du travail:</label><br>
+    <label for="titreEmploi" class="lbl">Titre de l'emploi:</label><br>
     <input type="text" id="titreEmploi" name="titreEmploi" placeholder="Titre du travail" class="inpt" required><br>
 
     <label for="departement" class="lbl">Sélectionnez un département:</label><br>
@@ -31,7 +32,7 @@
       <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.nomDepartement}"></option>
     </select><br>
 
-    <button type="submit" class="btn-ajou lbl">Ajouter travail</button>
+    <button type="submit" class="btn-ajou lbl">Ajouter Emploi</button>
   </form>
 
 </div>
@@ -42,6 +43,26 @@
 <div th:if="${error}" id="jobErrorMessage">
   <p class="p-error" th:text="${error}"></p>
 </div>
+
+<div class="table-container">
+  <hr class="hrPers">
+</div>
+
+<h1 class="h1-liste">Liste des emplois existant</h1>
+<div class="table-container dTable">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nom Emploi</th>
+
+    </tr>
+    <tr th:each="emploi : ${emplois}">
+      <td th:text="${emploi.id}"></td>
+      <td th:text="${emploi.titreEmploi}"></td>
+    </tr>
+  </table>
+</div>
+
 
 </body>
 </html>

@@ -82,3 +82,51 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('L\'employé a été modifié avec succès!');
     }
 });
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     setTimeout(function() {
+//         var welcomeMessage = document.getElementById('welcomeMessage');
+//         if (welcomeMessage) {
+//             welcomeMessage.style.display = 'block';
+//             setTimeout(function() {
+//                 welcomeMessage.style.display = 'none';
+//             }, 50000); // 50000 millisecondi = 50 secondi
+//         }
+//     }, 3000); // Ritardo di 3 secondi (3000 millisecondi)
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded event fired");
+
+    // Funzione per mostrare il messaggio di benvenuto
+    function showWelcomeMessage() {
+        var welcomeMessage = document.getElementById('welcomeMessage');
+        if (welcomeMessage) {
+            welcomeMessage.style.display = 'block';
+        }
+    }
+
+    // Mostra il messaggio di benvenuto dopo 3 secondi
+    setTimeout(showWelcomeMessage, 2000);
+
+    // Nasconde il messaggio di benvenuto dopo 50 secondi
+    setTimeout(function() {
+        var welcomeMessage = document.getElementById('welcomeMessage');
+        if (welcomeMessage) {
+            welcomeMessage.style.display = 'none';
+        }
+    }, 5000); // 50000 millisecondi = 50 secondi
+
+    // Funzione per mostrare il tableau dopo che il messaggio di benvenuto è stato visualizzato
+    function showTableau() {
+        var tableau = document.querySelector('.divNone');
+        if (tableau) {
+            tableau.style.display = 'block';
+        }
+    }
+
+    setTimeout(showTableau, 6000);
+});
+
+

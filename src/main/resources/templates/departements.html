@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+  <title>Liste des departements</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+
+<body>
+
+<div class="background-menu">
+  <div>
+    <h1 class="style-h1">Majesté Import-Export</h1>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formDepartement}">Gérer un département</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Gérer un emploi</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Gérer un employé</a></button>
+        <button class="btn" ><a class="a3" th:href="@{/emplois}">Liste des emplois</a></button>
+      </ul>
+    </nav>
+
+  </header>
+</div>
+<h1 class="h1-liste">Liste des departements</h1>
+<div class="table-container">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nom Departement</th>
+
+    </tr>
+    <tr th:each="departement : ${departements}">
+      <td th:text="${departement.id}"></td>
+      <td th:text="${departement.nomDepartement}"></td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

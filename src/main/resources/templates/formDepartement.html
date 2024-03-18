@@ -8,14 +8,15 @@
 <body>
 <div class="background-menu">
     <div>
-        <h1 class="style-h1">Ressources humaines</h1>
+        <h1 class="style-h1">Majesté Import-Export</h1>
     </div>
     <header>
         <nav>
             <ul>
                 <button class="btn"><a class="a3" th:href="@{/home}">HOME</a></button>
-                <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Créer un emploi</a></button>
-                <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Créer un employé</a></button>
+                <button class="btn" ><a class="a3" th:href="@{/formEmploi}">Gérer un emploi</a></button>
+                <button class="btn" ><a class="a3" th:href="@{/formEmploye}">Gérer un employé</a></button>
+                <button class="btn" ><a class="a3" th:href="@{/emplois}">Liste des emplois</a></button>
             </ul>
         </nav>
     </header>
@@ -27,6 +28,7 @@
         <input type="text" id="deptName" name="nomDepartement" placeholder="Nom du département" class="inpt" required><br>
         <button type="submit" class="btn-ajou lbl">Ajouter un département</button>
     </form>
+
 </div>
 <div id="successDiv" th:if="${success}">
     <p class="p-success" th:text="${success}"></p>
@@ -34,5 +36,26 @@
 <div th:if="${error}" id="errorDiv">
     <p class="p-error" th:text="${error}"></p>
 </div>
+
+<div class="table-container">
+    <hr class="hrPers">
+</div>
+
+
+<h1 class="h1-liste">Liste des departements existant</h1>
+<div class="table-container dTable">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom Departement</th>
+
+        </tr>
+        <tr th:each="departement : ${departements}">
+            <td th:text="${departement.id}"></td>
+            <td th:text="${departement.nomDepartement}"></td>
+        </tr>
+    </table>
+</div>
+
 </body>
 </html>
