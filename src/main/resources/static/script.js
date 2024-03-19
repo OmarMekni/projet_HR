@@ -118,3 +118,36 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("searchInput");
+    const rows = document.querySelectorAll("tr");
+
+    searchInput.addEventListener("input", function() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            let found = false;
+
+            cells.forEach(cell => {
+                if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                    found = true;
+                }
+            });
+
+            if (found) {
+                row.style.backgroundColor = "red";
+            } else {
+                row.style.backgroundColor = "";
+            }
+        });
+
+        if (searchTerm === "") {
+            rows.forEach(row => {
+                row.style.backgroundColor = "";
+            });
+        }
+    });
+});
+
+

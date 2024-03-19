@@ -257,3 +257,17 @@ nav ul {
 .divNone{
     display: none;
 }
+
+.rechEmp{
+    font-size: 20px;
+    font-family: cursive;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+#searchInput{
+    height: 30px;
+    font-family: cursive;
+    width: 180px;
+    border-radius: 10px;
+}
